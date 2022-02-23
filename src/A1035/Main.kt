@@ -21,15 +21,20 @@ fun main() {
         visit = ArrayList()
         visit.add(piece[x])
 
-        piece.forEach {
+        piece.forEachIndexed { index, it ->
             board[it.first][it.second] = -1
-            visit(it)
+            if (x != index)
+                visit(it)
         }
 
         if (visit.size == piece.size) {
             print(0)
-            break;
+            return
         } else {
+            visit.forEach {
+                board[it.first][it.second] = 1
+            }
+
             piece.forEachIndexed { _, i ->
                 val min = visit.map {
                     val v = move(i, it)
