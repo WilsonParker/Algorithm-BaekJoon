@@ -1,24 +1,37 @@
 fun main() {
-    val size = 4
+    val start = System.currentTimeMillis()
+    val size = 3
+    val last = 9
     val list = arrayListOf<Int>()
-    for (i in 1..10)
+    for (i in 1..last)
         list.add(i)
     val cnt = list.count()
-    val temp = Array(size) { 0 }
 
-    temp.forEachIndexed { index, i ->
-        temp[index] = 1
+    var init = 1
+    while (list.slice(IntRange(0, init)).sum() < list.last()) {
+        init++
     }
-    temp[size - 1] = cnt - size + 1
+
+    val temp = Array(size) { init }
+    var min = temp
+    for (i in 1 until size)
+        temp[i] = 1
+    temp[size - 1] = cnt - size - init
+
+    9
+
+    3 1 5
+    9-3
+
+    3 1 1 4
 
     val fnc = fun(list: List<Int>, temp: Array<Int>): Int {
-        val cln = list.toMutableList()
         var max = 0
+        var idx = 0
         temp.forEach {
-            var sum = 0
-            for (i in 0 until it)
-                sum += cln.removeFirst()
+            val sum = list.slice(IntRange(idx, idx + it - 1)).sum()
             max = if (max > sum) max else sum
+            idx += it
         }
         return max
     }
@@ -43,8 +56,15 @@ fun main() {
             temp[i - 1] += 1
         }
         val v = fnc(list, temp)
-        result = if (result > v) v else result
+        if (result > v) {
+            result = v
+            min = temp.clone()
+        }
     }
 
-    print(result)
+    println(result)
+    println(min.contentDeepToString())
+    println(System.currentTimeMillis() - start)
+    // 1000 22931 -> 1128, 167164
+    // 10000 22931 ->
 }
