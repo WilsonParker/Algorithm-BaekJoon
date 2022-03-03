@@ -1,8 +1,9 @@
 fun main() {
-    val input = readLine()!!.split(" ").map{ it.toInt()}
-    val cnt = input[0]
-    val size = input[1]
-    val list = readLine()!!.split(" ").map{ it.toInt()}
+    val size = 4
+    val list = arrayListOf<Int>()
+    for (i in 1..10)
+        list.add(i)
+    val cnt = list.count()
     val temp = Array(size) { 0 }
 
     temp.forEachIndexed { index, i ->
