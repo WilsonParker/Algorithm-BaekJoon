@@ -18,13 +18,6 @@ fun main() {
         temp[i] = 1
     temp[size - 1] = cnt - size - init
 
-    9
-
-    3 1 5
-    9-3
-
-    3 1 1 4
-
     val fnc = fun(list: List<Int>, temp: Array<Int>): Int {
         var max = 0
         var idx = 0
