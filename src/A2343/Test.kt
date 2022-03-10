@@ -1,93 +1,65 @@
-package A1035
-
-import kotlin.math.abs
-import kotlin.math.min
-
-private lateinit var board: Array<Array<Int>>
-private lateinit var visit: ArrayList<Pair<Int, Int>>
+package A2343
 
 fun main() {
-    val piece = ArrayList<Pair<Int, Int>>()
-    for (y in 0..4) {
-        val l = readLine()!!.toCharArray()
-        for (x in 0..4)
-            if (l[x] == '*')
-                piece.add(Pair(y, x))
+    val start = System.currentTimeMillis()
+    val size = 3
+    val last = 9
+    val list = arrayListOf<Int>()
+    for (i in 1..last)
+        list.add(i)
+    val cnt = list.count()
+
+    var init = 1
+    while (list.slice(IntRange(0, init)).sum() < list.last()) {
+        init++
     }
 
-    var result = 13
-    for (x in piece.indices) {
-        board = Array(5) { Array(5) { 0 } }
-        visit = ArrayList()
-        visit.add(piece[x])
+    val temp = Array(size) { init }
+    var min = temp
+    for (i in 1 until size)
+        temp[i] = 1
+    temp[size - 1] = cnt - size - init
 
-        piece.forEach {
-            board[it.first][it.second] = -1
-            visit(it)
+    val fnc = fun(list: List<Int>, temp: Array<Int>): Int {
+        var max = 0
+        var idx = 0
+        temp.forEach {
+            val sum = list.slice(IntRange(idx, idx + it - 1)).sum()
+            max = if (max > sum) max else sum
+            idx += it
         }
+        return max
+    }
 
-        piece.forEachIndexed { _, i ->
-            val min = visit.map {
-                val v = move(i, it)
-                Pair(v, abs(i.first - v.first) + abs(i.second - v.second) + 1)
-            }.sortedBy {
-                it.second
-            }.first()
-            board[i.first][i.second] = 0
-            board[min.first.first][min.first.second] = min.second
-            println("-------")
-            println(min)
-            println("-------")
-            printArr(board)
+    var result = fnc(list, temp)
+    var i = size - 1;
+
+    while (temp[0] < cnt - size + 1) {
+        if (temp[i] == 1) {
+            i--
+            if (i < size - 1 && temp[i] != 1) {
+                val carry = temp[i] - 1
+                temp[i - 1] += 1
+                for (j in i until size) {
+                    temp[j] = 1
+                }
+                temp[size - 1] = carry
+                i = size - 1
+            }
+        } else {
+            temp[i] -= 1
+            temp[i - 1] += 1
         }
-        result = min(result, board.sumOf { it.sum() } - piece.size)
-        println(result)
-        println("---end---")
-    }
-    print(result)
-}
-
-private fun move(i: Pair<Int, Int>, target: Pair<Int, Int>): Pair<Int, Int> {
-    val f = abs(target.first - i.first)
-    val s = abs(target.second - i.second)
-
-    println("$target $i")
-    println("$f $s")
-
-    if (f + s == 0) {
-        return i
-    } else if (board[target.first][target.second] == 0) {
-        return target
-    } else {
-        val target2 =
-            if (f > s)
-                Pair(
-                    if (target.first > i.first) target.first - 1 else target.first + 1,
-                    target.second
-                )
-            else
-                Pair(
-                    target.first,
-                    if (target.second > i.second) target.second - 1 else target.second + 1,
-                )
-        return move(
-            i,
-            target2
-        )
-    }
-}
-
-private fun visit(target: Pair<Int, Int>) {
-    for (i in visit.indices) {
-        if (abs(visit[i].first - target.first) + abs(visit[i].second - target.second) == 1) {
-            visit.add(target)
-            break;
+        val v = fnc(list, temp)
+        if (result > v) {
+            result = v
+            min = temp.clone()
         }
     }
-}
 
-private fun printArr(arr: Array<Array<Int>>) {
-    board.forEach {
-        println(it.contentDeepToString())
-    }
+    println(result)
+    println(min.contentDeepToString())
+    println(System.currentTimeMillis() - start)
+    // 1000 22931 -> 1128, 167164
+    // 10000 22931 ->
 }

@@ -1,3 +1,5 @@
+package Temp
+
 fun main() {
     val input = readLine()!!.split(" ").map{ it.toInt()}
     val cnt = input[0]
