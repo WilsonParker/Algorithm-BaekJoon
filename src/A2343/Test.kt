@@ -59,21 +59,21 @@ private fun move(i: Pair<Int, Int>, target: Pair<Int, Int>): Pair<Int, Int> {
     } else if (board[target.first][target.second] == 0) {
         return target
     } else {
-        val m1 = move(
-            i, Pair(
-                if (target.first > i.first) target.first - 1 else target.first + 1,
-                target.second
-            )
+        val target2 =
+            if (f > s)
+                Pair(
+                    if (target.first > i.first) target.first - 1 else target.first + 1,
+                    target.second
+                )
+            else
+                Pair(
+                    target.first,
+                    if (target.second > i.second) target.second - 1 else target.second + 1,
+                )
+        return move(
+            i,
+            target2
         )
-
-        val m2 = move(
-            i, Pair(
-                target.first,
-                if (target.second > i.second) target.second - 1 else target.second + 1,
-            )
-        )
-
-        return if (m1.first + m1.second > m2.first + m2.second) m2 else m1
     }
 }
 
