@@ -18,15 +18,23 @@ private fun execute(s: String): String {
     val front = s.slice(IntRange(0, half - 1))
     var back = s.slice(IntRange(half + odd, l - 1))
 
-    if (front.toInt() > back.toInt()) {
+    if (front.first() > back.first()) {
         back = front.reversed()
     } else {
-        return execute((s.toInt() + 1).toString())
+        return execute(inc(s))
     }
 
     return if (odd == 1) {
         front + s.slice(IntRange(half, half)) + back
     } else {
         front + back
+    }
+}
+
+private fun inc(s: String): String {
+    return if (s.length > 8) {
+        inc(s.slice(IntRange(0, 7))) + inc(s.slice(IntRange(7, s.length - 1)))
+    } else {
+        (s.toInt() + 1).toString()
     }
 }
