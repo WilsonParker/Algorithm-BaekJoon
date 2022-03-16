@@ -5,14 +5,16 @@ import kotlin.math.sign
 
 fun main() {
     var n: String
+    n = "129"
+    n = "858"
+    n = "12345"
+    n = "54321"
+    n = "54"
+    n = "45"
+    n = "999"
     n = "1999"
     n = "9999"
-    n = "129"
-    n = "999"
-    n = "45"
-    n = "54"
-    n = "12345"
-    n = "858"
+    n = "123456789012345678901234567890"
     val result = if (n.length == 1)
         n.toInt() + 1
     else {
