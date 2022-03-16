@@ -7,15 +7,13 @@ fun main() {
     val result = if (n.length == 1)
         n.toInt() + 1
     else {
-        var front: String
         val l = n.length
         val h = l / 2
-        val m = h + l % 2
-        val c = if (l == 2) -1 else 0
-
-        if (sum(n.slice(IntRange(0, h - 1))) <= sum(n.slice(IntRange(m, l - 1)))) {
-            val arr = n.slice(IntRange(0, h + c)).toCharArray().map { it.digitToInt() }.toMutableList()
-            var carry = 0;
+        val o = l % 2
+        var carry = 0
+        var front = n.slice(IntRange(0, h - 1 + o))
+        if (sum(n.slice(IntRange(0, h - 1))) <= sum(n.slice(IntRange(h + o, l - 1)))) {
+            val arr = front.toCharArray().map { it.digitToInt() }.toMutableList()
             for (i in arr.size - 1 downTo 0) {
                 val temp = arr[i] + 1
                 arr[i] = temp % 10
@@ -23,17 +21,12 @@ fun main() {
                 if (carry == 0) break;
             }
             front = (if (carry == 1) "1" else "") + arr.joinToString("")
-        } else {
-            front = n.slice(IntRange(0, h + c))
         }
 
-        if (l == 2) {
-            front + front.reversed()
-        } else {
-            val m = front.last()
-            front = front.dropLast(1)
-            front + m + front.reversed()
-        }
+        val a = if (carry == 1) front.last() else ""
+        val b = if (o == 1) front.last() else ""
+        front = front.dropLast(carry + o)
+        front + a + b + front.reversed()
     }
     print(result)
 }

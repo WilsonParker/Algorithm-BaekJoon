@@ -5,25 +5,28 @@ import kotlin.math.sign
 
 fun main() {
     var n: String
-    n = "12345"
     n = "1999"
-    n = "858"
-    n = "54"
-    n = "45"
-    n = "999"
     n = "9999"
+    n = "129"
+    n = "999"
+    n = "45"
+    n = "54"
+    n = "12345"
+    n = "858"
     val result = if (n.length == 1)
         n.toInt() + 1
     else {
-        var carry = 0
+        // 길이
         val l = n.length
+        // 가운데 위치
         val h = l / 2
-        val m = h + l % 2
-        println("$h $m")
-
-        var front = n.slice(IntRange(0, m - 1))
-        println(front)
-        if (sum(n.slice(IntRange(0, h - 1))) <= sum(n.slice(IntRange(m, l - 1)))) {
+        // 홀수 여부
+        val o = l % 2
+        // 올림 값
+        var carry = 0
+        var front = n.slice(IntRange(0, h - 1 + o))
+        println("front : $front")
+        if (sum(n.slice(IntRange(0, h - 1))) <= sum(n.slice(IntRange(h + o, l - 1)))) {
             val arr = front.toCharArray().map { it.digitToInt() }.toMutableList()
             for (i in arr.size - 1 downTo 0) {
                 val temp = arr[i] + 1
@@ -34,22 +37,14 @@ fun main() {
             front = (if (carry == 1) "1" else "") + arr.joinToString("")
         }
 
-        println(front)
-        if (h == m && carry == 0) {
-            front + front.reversed()
-        } else {
-            var m: String
-            if (carry == 1) {
-                m = front.slice(IntRange(front.length - 2, 1))
-                front = front.dropLast(1)
-            } else {
-                m = front.slice(IntRange(front.length - 1, 1))
-                front = front.dropLast(1)
-            }
-            println(front)
-            println(m)
-            front + m + front.reversed()
-        }
+        println("front2 : $front")
+        println("carry : $carry")
+        println("o : $o")
+        val a = if (carry == 1) front.last() else ""
+        val b = if (o == 1) front.last() else ""
+        front = front.dropLast(carry + o)
+        println("front3 : $front")
+        front + a + b + front.reversed()
     }
     print(result)
 }
