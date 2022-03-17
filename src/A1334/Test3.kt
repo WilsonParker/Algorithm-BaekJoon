@@ -1,20 +1,21 @@
 package A1334
 
 import kotlin.math.pow
-import kotlin.math.sign
 
 fun main() {
     var n: String
-    n = "129"
-    n = "858"
     n = "12345"
-    n = "54321"
+    n = "1999"
+    n = "2"
     n = "54"
     n = "45"
-    n = "999"
-    n = "1999"
+    n = "201"
     n = "9999"
-    n = "1234243" //
+    n = "54321"
+    n = "12345678901234567890123456789012345678901234567890"
+    n = "100"
+    n = "1"
+    n = "11"
     val result = if (n.length == 1)
         n.toInt() + 1
     else {
@@ -26,27 +27,35 @@ fun main() {
         val o = l % 2
         // 올림 값
         var carry = 0
-        var front = n.slice(IntRange(0, h - 1 + o))
-        println("front : $front")
-        if (sum(n.slice(IntRange(0, h - 1))) <= sum(n.slice(IntRange(h + o, l - 1)))) {
-            val arr = front.toCharArray().map { it.digitToInt() }.toMutableList()
+
+        var front = n.slice(IntRange(0, h - 1))
+        var back = n.slice(IntRange(h + o, l - 1))
+        var mid = n.slice(IntRange(h, h + o - 1))
+
+        if (sum(front.reversed()) <= sum(back)) {
+            val arr = (front + mid).toCharArray().map { it.digitToInt() }.toMutableList()
             for (i in arr.size - 1 downTo 0) {
                 val temp = arr[i] + 1
                 arr[i] = temp % 10
                 carry = temp / 10
                 if (carry == 0) break;
             }
+
+            // 홀수 인 경우
+            if (o == 1) {
+                mid = arr[arr.size - 1].toString()
+                arr.removeAt(arr.size - 1)
+            }
+
+            // 올림이 있는 경우
+            if (carry == 1) {
+                mid += arr[arr.size - 1].toString()
+                arr.removeAt(arr.size - 1)
+            }
             front = (if (carry == 1) "1" else "") + arr.joinToString("")
         }
 
-        println("front2 : $front")
-        println("carry : $carry")
-        println("o : $o")
-        val a = if (carry == 1) front.last() else ""
-        val b = if (o == 1) front.last() else ""
-        front = front.dropLast(carry + o)
-        println("front3 : $front")
-        front + a + b + front.reversed()
+        front + mid + front.reversed()
     }
     print(result)
 }
