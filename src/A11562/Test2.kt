@@ -13,7 +13,7 @@ fun main() {
             arr[l[1]] += 1 shl l[0] - 1
     }
 
-    arr.forEach { println(Integer.toBinaryString(it)) }
+    arr.forEach { println(Integer.toBinaryString(it).padStart(4, '0')) }
 
     val k = readLine()!!.toInt()
     val arr2 = Array(k) { 0 }
@@ -22,7 +22,7 @@ fun main() {
         arr2[i] = move(f, b, arr)
     }
 
-    arr2.forEach { println(it) }
+    // arr2.forEach { println(it) }
 }
 
 private fun move(n: Int, m: Int, arr: Array<Int>, c: Int = 0): Int {
@@ -30,9 +30,13 @@ private fun move(n: Int, m: Int, arr: Array<Int>, c: Int = 0): Int {
     return if (n < m) {
         move(n + 1, m, arr, c + if (arr[n].and(1 shl n - 1) > 0) 0 else 1)
     } else if (n > m) {
-        println("${arr[n]} : ${1 shl n - 2} = ${arr[n].and(1 shl n - 2)}")
         move(n - 1, m, arr, c + if (arr[n].and(1 shl n - 2) > 0) 0 else 1)
     } else {
         c
     }
 }
+
+// 0011
+// 0110
+// 1110
+// 1000
