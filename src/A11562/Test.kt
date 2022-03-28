@@ -1,15 +1,19 @@
 package A11562
 
+import kotlin.math.pow
+
 fun main() {
     val (n, m) = readLine()!!.split(" ").map { it.toInt() }
-    val arr = Array(n) { Array(3) { "" } }
+    val arr = Array(n) { 0 }
 
-    printArr(arr)
-    println("-----")
-    for (i in 0..m) {
-        arr[i].plus(readLine()!!.split(" "))
+    for (i in 0 until n)
+        arr[i] = 2.0.pow(i).toInt()
+    for (i in 0 until m) {
+        val l = readLine()!!.split(" ").map { it.toInt() }
+        if (l[2] == 1) {
+            // arr[l[1] - 1] += 2.0.pow(l[0]).toInt()
+        }
     }
-    println("-----")
     printArr(arr)
 
 //    0001
@@ -26,6 +30,7 @@ fun main() {
 //    4 3 1
 }
 
-private fun printArr(arr: Array<Array<String>>) {
-    arr.forEach { println(it.contentDeepToString()) }
+private fun printArr(arr: Array<Int>) {
+    arr.forEach { println(Integer.toBinaryString(it)) }
+    println()
 }
