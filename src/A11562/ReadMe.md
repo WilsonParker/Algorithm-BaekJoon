@@ -1,8 +1,9 @@
-제목
+백양로 브레이크
 ---
 
-date : 2022-03-23\
-url : https://www.acmicpc.net/11562
+date : 2022-03-23    
+url : https://www.acmicpc.net/problem/11562   
+difficulty : Gold 4   
 status : success
 
 문제

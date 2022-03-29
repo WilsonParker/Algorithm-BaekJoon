@@ -1,8 +1,10 @@
-제목
+Darius님 한타 안함?
 ---
 
-date : 2022-03-22\
-url : https://www.acmicpc.net/20499
+date : 2022-03-22   
+url : https://www.acmicpc.net/problem/20499   
+difficulty : Bronze 5   
+status : success
 
 문제
 ---

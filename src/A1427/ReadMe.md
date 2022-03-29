@@ -1,8 +1,10 @@
-제목
+소트인사이트
 ---
 
-date : 2022-03-22\
-url : https://www.acmicpc.net/1427
+date : 2022-03-22   
+url : https://www.acmicpc.net/problem/1427   
+difficulty : Silver 5   
+status : success
 
 문제
 ---

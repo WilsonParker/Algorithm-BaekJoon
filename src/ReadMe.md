@@ -2,7 +2,8 @@
 ---
 
 date : 2022-02-07\
-url : https://www.acmicpc.net/
+url : https://www.acmicpc.net/problem/
+difficulty : 
 status : ready
 
 문제
