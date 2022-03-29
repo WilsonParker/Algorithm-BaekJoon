@@ -22,7 +22,6 @@ fun main() {
                 map[b][c] = min(map[b][c], map[b][a] + map[a][c])
 
     val k = readLine()!!.toInt()
-    val r = Array(k) { 0 }
     for (i in 0 until k) {
         val (s, e) = readIntArr()
         println(map[s - 1][e - 1])
