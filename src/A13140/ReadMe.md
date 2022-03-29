@@ -1,8 +1,8 @@
 Hello World!
 ---
 
-date : 2022-03-10\
-url : https://www.acmicpc.net/problem/13140
+date : 2022-03-10   
+url : https://www.acmicpc.net/problem/13140   
 difficulty : Gold 5   
 status : fail
 

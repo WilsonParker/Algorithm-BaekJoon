@@ -1,9 +1,9 @@
 모음의 개수
 ---
 
-date : 2022-03-29\
-url : https://www.acmicpc.net/1264
-difficulty : Bronze 2
+date : 2022-03-29   
+url : https://www.acmicpc.net/1264   
+difficulty : Bronze 2   
 status : success
 
 문제

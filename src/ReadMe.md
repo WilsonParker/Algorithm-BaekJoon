@@ -1,9 +1,9 @@
 제목
 ---
 
-date : 2022-02-07\
-url : https://www.acmicpc.net/problem/
-difficulty : 
+date : 2022-02-07   
+url : https://www.acmicpc.net/problem/   
+difficulty :    
 status : ready
 
 문제
