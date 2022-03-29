@@ -12,10 +12,13 @@ fun main() {
 
     for (i in 0 until m) {
         val (u, v, b) = readIntArr()
+        // u -> v 는 바로 이동 가능
         map[u - 1][v - 1] = 0
+        // b 가 1 이면 v -> u 바로 이동 가능
         map[v - 1][u - 1] = if (b == 1) 0 else 1
     }
 
+    // 각 정점에 대해 다른 정점으로 이동하는데 바꿔야 하는 통행 수
     for (a in 0 until n)
         for (b in 0 until n)
             for (c in 0 until n)

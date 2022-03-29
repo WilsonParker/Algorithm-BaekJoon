@@ -3,6 +3,7 @@
 
 date : 2022-02-07\
 url : https://www.acmicpc.net/
+status : ready
 
 문제
 ---
