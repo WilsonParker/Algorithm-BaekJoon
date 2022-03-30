@@ -1,7 +1,7 @@
 조각 움직이기
 ---
 
-date : 2022-02-21\
+date : 2022-02-21   
 url : https://www.acmicpc.net/problem/1035   
 difficulty : Gold 1   
 status : fail
