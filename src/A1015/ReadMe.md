@@ -4,7 +4,7 @@
 date : 2022-03-30   
 url : https://www.acmicpc.net/problem/1015   
 difficulty : Silver 4   
-status : ready
+status : success
 
 문제
 ---
@@ -66,4 +66,20 @@ P[0], P[1], ...., P[N-1]은 0부터 N-1까지(포함)의 수를 한 번씩 포�
 ---
 
 ```
+# Input
+A : 2 3 1
+Index : 0 1 2
+
+배열 A를 정렬하여 새로운 Index 를 부여하고
+
+Sorted A : 1 2 3
+Origin Index : 2 0 1
+Sorted Index : 0 1 2
+
+기존 Index 대로 정렬된 Index를 재 정렬 합니다
+Origin Index : 0 1 2
+Sorted Index : 1 2 0
+
+# Output
+1 2 0
 ```
