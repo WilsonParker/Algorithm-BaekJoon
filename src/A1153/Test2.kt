@@ -8,6 +8,7 @@ fun main() {
             !dr.any { di -> it % di == 0 }
         }.toMutableList()
     r.addAll(0, dr)
+    println(r)
     for (a in r)
         for (b in r)
             if (n - 4 == a + b) {
