@@ -7,14 +7,25 @@ fun main() {
         .filter {
             !dr.any { di -> it % di == 0 } || dr.contains(it)
         }
+
+    if (n < 8)
+        print(-1)
+    else if (n % 2 == 0) {
+        print("2 2")
+        goldbach(n - 4, r)
+    } else {
+        print("2 3")
+        goldbach(n - 5, r)
+    }
+}
+
+private fun goldbach(n: Int, r: List<Int>) {
     for (a in r)
         for (b in r)
-            if (n - 4 == a + b) {
-                print("2 2 $a $b")
+            if (n == a + b) {
+                print(" $a $b")
                 return
-            } else if (n - 5 == a + b) {
-                print("2 3 $a $b")
-                return
+            } else if (n < a + b) {
+                break
             }
-    print(-1)
 }
