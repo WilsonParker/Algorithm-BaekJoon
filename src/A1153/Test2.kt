@@ -2,10 +2,15 @@ package A1153
 
 fun main() {
     val n = readLine()!!.toInt()
-    val dr = mutableListOf(2, 3, 5, 7)
     val r = List(n - 2) { it + 2 }
         .filter {
-            !dr.any { di -> it % di == 0 } || dr.contains(it)
+            var r = true
+            for (i in 2..Math.sqrt(it.toDouble()).toInt())
+                if (it % i == 0) {
+                    r = false
+                    break
+                }
+            r
         }
 
     if (n < 8)

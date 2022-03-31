@@ -4,7 +4,7 @@
 date : 2022-03-30   
 url : https://www.acmicpc.net/problem/1153   
 difficulty : Gold 4   
-status : ready
+status : success
 
 문제
 ---
@@ -37,5 +37,6 @@ status : ready
 ---
 
 ```
-
+N 까지의 자연수 중 소수를 구하고 (라토스테네스의 체)
+골드바흐의 추측을 사용하여 4개의 소수의 합이 N 인 경우를 출력
 ```
