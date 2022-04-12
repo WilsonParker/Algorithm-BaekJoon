@@ -4,7 +4,7 @@
 date : 2022-04-11   
 url : https://www.acmicpc.net/problem/2435   
 difficulty : Silver 4   
-status : ready
+status : complete
 
 문제
 ---
