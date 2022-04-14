@@ -8,20 +8,36 @@ fun main() {
     var a = 0
     var b = 0
 
+    var loop = true
+    val m = n.length
+    var f = n.first().digitToInt()
     do {
-        var m = n.length
-        for (i in 1..m) {
+        al.add(f)
+        for (i in f downTo 1) {
             for (j in 1..9) {
                 if (!al.contains(j)) {
                     al.add(j)
-                    break;
+                    if (al.size == m) {
+                        println(al.joinToString("").toInt())
+                        for (k in 1..9) {
+                            if (!al.contains(k) && !bl.contains(k)) {
+                                bl.add(k)
+                                if (al.joinToString("").toInt() + bl.joinToString("").toInt() > n.toInt()) {
+
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
-        a = al.joinToString("").toInt()
-    } while (a )
+        println(al.joinToString("").toInt())
+        f--
+        loop = false
+    } while (loop)
 
     println(al)
+    println(bl)
 }
 
 private fun getInt(l: Int) {
