@@ -11,7 +11,7 @@ fun main() {
             m *= a
             toInt(m)
         }
-        val j = b % 10 % 4 - 1
+        val j = b % 10 % 4 -1
         println(if (j > 0) l[j] else l[3])
     }
 }
