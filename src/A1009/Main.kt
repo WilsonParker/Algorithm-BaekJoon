@@ -12,8 +12,9 @@ fun main() {
             m *= a
             toInt(m)
         }
-        val j = b % 4 - 1
-        r.add(if (j > 0) l[j] else l[3])
+        var j = b % 10 % 4 - 1
+        j = if (j > -1) j else 3
+        r.add(if (l[j] == 0) 10 else l[j])
     }
     r.forEach { println(it) }
 }

@@ -11,7 +11,12 @@ fun main() {
             m *= a
             toInt(m)
         }
-        val j = b % 10 % 4 - 1
-        println(if (j > 0) l[j] else l[3])
+        println(l.contentDeepToString())
+        var j = b % 4 - 1
+        j = if (j > -1) j else 3
+        println(
+            if (l[j] == 0) 10
+            else l[j]
+        )
     }
 }

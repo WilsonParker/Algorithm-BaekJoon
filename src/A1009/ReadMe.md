@@ -4,7 +4,7 @@
 date : 2022-04-19   
 url : https://www.acmicpc.net/problem/1009   
 difficulty : Bronze 3   
-status : ready
+status : success
 
 문제
 ---
@@ -44,6 +44,26 @@ status : ready
 7
 6
 1
+9
+```
+
+### 2)
+- input
+```
+5
+3 7
+10 1
+10 10
+10 5
+7 10
+```
+
+- output
+```
+7
+10
+10
+10
 9
 ```
 
