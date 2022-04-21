@@ -12,6 +12,7 @@ fun main() {
         for (b in 0..m - 8) {
             var r = 0
             val l = board.map { it.clone() }.toTypedArray().clone()
+            println("$a $b")
             for (i in a until a + 8) {
                 for (j in b until b + 8) {
                     if (j > b) {
@@ -27,8 +28,15 @@ fun main() {
                     }
                 }
             }
+            printR(l)
+            println("r : $r")
             min = if (min > r) r else min
         }
     }
     print(min)
+}
+
+private fun printR(ca: Array<CharArray>) {
+    ca.forEach { println(it.joinToString(",")) }
+    println()
 }
