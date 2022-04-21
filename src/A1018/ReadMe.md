@@ -4,7 +4,7 @@
 date : 2022-04-20   
 url : https://www.acmicpc.net/problem/1018   
 difficulty : Silver 5   
-status : ready
+status : success
 
 문제
 ---
@@ -173,4 +173,4 @@ WBWWBWBBWWBW
 ```
 풀이
 ---
-
+0.0 부터 n-8.m-8 까지 8*8 박스를 만들어서 x, y 가 W 또는 B 일 때의 최소 값을 구한다 
