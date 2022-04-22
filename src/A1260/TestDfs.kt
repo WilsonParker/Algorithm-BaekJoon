@@ -1,12 +1,10 @@
 package A1260
 
-import java.util.*
-
 fun main() {
     var (n, m, v) = readLine()!!.split(" ").map { it.toInt() - 1 }
     n++
     val map = Array(n) { Array(n) { 0 } }
-    var visit = Array(n) { false }
+    val visit = Array(n) { false }
 
     for (i in 0..m) {
         val (f, t) = readLine()!!.split(" ").map { it.toInt() - 1 }
@@ -23,24 +21,5 @@ fun main() {
         }
     }
 
-    fun bfs(s: Int) {
-        val q = LinkedList<Int>()
-        q.add(s)
-        visit[s] = true
-
-        while (!q.isEmpty()) {
-            print("${q.pop() + 1} ")
-            for (i in map[s].indices) {
-                if (visit[i]) {
-                    q.add(i)
-                    visit[i] = true
-                }
-            }
-        }
-    }
-
     dfs(v)
-    visit = visit.map { false }.toTypedArray()
-    println()
-    bfs(v)
 }

@@ -7,8 +7,8 @@ fun main() {
     n++
     val dMap = Array(n) { Array(n) { 0 } }
     val bMap = Array(n) { LinkedList<Int>() }
-    var dVisit = Array(n) { 0 }
-    var bVisit = Array(n) { 0 }
+    var dVisit = Array(n) { false }
+    var bVisit = Array(n) { false }
 
     for (i in 0..m) {
         val (f, t) = readLine()!!.split(" ").map { it.toInt() - 1 }
@@ -21,26 +21,24 @@ fun main() {
 
     fun dfs(s: Int) {
         print("${s + 1} ")
-        dVisit[s] = 1
+        dVisit[s] = true
         for (i in dMap[s].indices) {
-            if (dVisit[i] == 0 && dMap[s][i] == 1)
+            if (!dVisit[i] && dMap[s][i] == 1)
                 dfs(i)
         }
     }
 
     fun bfs(s: Int) {
         val q = LinkedList<Int>()
-        q.add(s)
-        bVisit[s] = 1
+        q.offer(s)
 
         while (!q.isEmpty()) {
             val p = q.pop()
             println("${p + 1} ")
-            for (i in bMap[p]) {
-                println("i : $i} ")
-                if (bVisit[i] == 0) {
+            if (!bVisit[p]) {
+                bVisit[p] = true
+                for (i in bMap[p]) {
                     q.add(i)
-                    bVisit[i] = 1
                 }
             }
         }
