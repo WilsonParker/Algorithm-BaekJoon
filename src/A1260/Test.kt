@@ -1,19 +1,21 @@
 package A1260
 
-fun main() {
-    val (n, m, v) = readLine()!!.split(" ").map { it.toInt() }
-    val map = Array(n + 1) { Array(n + 1) { 0 } }
-    val visit = Array(n + 1) { 0 }
+import java.util.*
 
-    for (i in 1..m) {
-        val (f, t) = readLine()!!.split(" ").map { it.toInt() }
+fun main() {
+    var (n, m, v) = readLine()!!.split(" ").map { it.toInt() - 1 }
+    n++
+    val map = Array(n) { Array(n) { 0 } }
+    var visit = Array(n) { 0 }
+
+    for (i in 0..m) {
+        val (f, t) = readLine()!!.split(" ").map { it.toInt() - 1 }
         map[f][t] = 1
         map[t][f] = 1
     }
-    println(map.contentDeepToString())
 
     fun dfs(s: Int) {
-        println(s)
+        print("${s + 1} ")
         visit[s] = 1
         for (i in map[s].indices) {
             if (visit[i] == 0 && map[s][i] == 1)
@@ -21,5 +23,24 @@ fun main() {
         }
     }
 
-    dfs(1)
+    fun bfs(s: Int) {
+        val q = LinkedList<Int>()
+        q.add(s)
+        visit[s] = 1
+
+        while (!q.isEmpty()) {
+            print("${q.pop() + 1} ")
+            for (i in map[s].indices) {
+                if (visit[i] == 0) {
+                    q.add(i)
+                    visit[i] = 1
+                }
+            }
+        }
+    }
+
+    dfs(v)
+    visit = visit.map { 0 }.toTypedArray()
+    println()
+    bfs(v)
 }
