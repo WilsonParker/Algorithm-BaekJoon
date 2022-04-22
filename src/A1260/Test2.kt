@@ -27,13 +27,15 @@ fun main() {
     fun bfs(s: Int) {
         val q = LinkedList<Int>()
         q.offer(s)
+
         while (!q.isEmpty()) {
             val p = q.pop()
             if (!bVisit[p]) {
                 print("${p + 1} ")
                 bVisit[p] = true
-                for (i in map[p])
+                for (i in map[p]) {
                     q.add(i)
+                }
             }
         }
     }

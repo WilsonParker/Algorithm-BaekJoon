@@ -15,10 +15,9 @@ fun main() {
     fun dfs(s: Int) {
         print("${s + 1} ")
         visit[s] = true
-        for (i in map[s].indices) {
-            if (!visit[i] && map[s][i] == 1)
+        for (i in map[s])
+            if (!visit[i])
                 dfs(i)
-        }
     }
 
     dfs(v)
