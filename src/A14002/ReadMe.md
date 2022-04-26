@@ -4,7 +4,7 @@
 date : 2022-4-25   
 url : https://www.acmicpc.net/problem/14002   
 difficulty : Gold 4   
-status : ready
+status : Success
 
 문제
 ---
@@ -49,7 +49,8 @@ status : ready
 
 - output
 ```
-
+4
+5 6 7 8
 ```
 
 ### 3)
@@ -61,7 +62,21 @@ status : ready
 
 - output
 ```
+4
+3 5 7 9
+```
 
+### 3)
+- input
+```
+9
+1 3 5 7 9 2 1 8 9
+```
+
+- output
+```
+6
+1 3 5 7 8 9
 ```
 
 풀이
