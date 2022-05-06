@@ -1,10 +1,10 @@
 package A1577
 
 fun main() {
-    val rd = fun() = readln()!!.split(" ").map { it.toInt() }
+    val rd = fun() = readLine()!!.split(" ").map { it.toInt() }
     val bi = fun(n: String) = n.toBigInteger()
     val (n, m) = rd()
-    val k = readln()!!.toInt()
+    val k = readLine()!!.toInt()
     val l = Array(m + 1) { Array(n + 1) { "0" } }
     val x = "-1"
     for (i in 0 until k) {

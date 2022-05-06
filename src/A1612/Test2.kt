@@ -1,17 +1,23 @@
 package A1612
 
 fun main() {
-    val n = 13
-    var i = 2
-    val chk = fun() = CharArray(i) { '1' }.concatToString().toDouble() % n != 0.0
-    if (n % 2 == 0 || n % 5 == 0)
-        print(-1)
-    else {
-        while (chk())
-            i += 1
-        print(i)
-    }
-    println()
-    println(CharArray(i) { '1' }.concatToString())
-    println(CharArray(i) { '1' }.concatToString().toDouble() / n)
+    val n = 9901
+    var c = 2
+    var i = 11
+    print(
+        if (n % 2 == 0 || n % 5 == 0)
+            -1
+        else if (n == 1)
+            1
+        else {
+            while (i % n != 0) {
+                println(i % n)
+                i = (i * 10 + 1) % n
+                c += 1
+                println(i)
+                println("---")
+            }
+            c
+        }
+    )
 }

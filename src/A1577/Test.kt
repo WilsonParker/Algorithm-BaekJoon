@@ -6,9 +6,9 @@ fun main() {
 //    2
 //    0 0 0 1
 //    6 6 5 6
-    val rd = fun() = readln()!!.split(" ").map { it.toInt() }
+    val rd = fun() = readLine()!!.split(" ").map { it.toInt() }
     val (n, m) = rd()
-    val k = readln()!!.toInt()
+    val k = readLine()!!.toInt()
     val l = Array<Array<Long>>(m + 1) { Array(n + 1) { 0 } }
 
     // 테스트용 출력
