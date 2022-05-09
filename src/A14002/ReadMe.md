@@ -4,7 +4,7 @@
 date : 2022-4-25   
 url : https://www.acmicpc.net/problem/14002   
 difficulty : Gold 4   
-status : Success
+status : success
 
 문제
 ---

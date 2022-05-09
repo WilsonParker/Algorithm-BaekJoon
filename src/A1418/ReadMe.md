@@ -4,7 +4,7 @@ K-세준수
 date : 2022-5-3   
 url : https://www.acmicpc.net/problem/1418   
 difficulty : Bronze 1   
-status : Success
+status : success
 
 문제
 ---

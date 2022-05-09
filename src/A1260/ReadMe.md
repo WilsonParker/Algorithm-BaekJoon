@@ -1,10 +1,10 @@
-제목
+DFS와 BFS
 ---
 
 date : 2022-04-22   
 url : https://www.acmicpc.net/problem/1260   
 difficulty : Silver 2   
-status : ready
+status : success
 
 문제
 ---

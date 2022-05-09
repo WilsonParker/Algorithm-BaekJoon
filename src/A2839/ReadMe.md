@@ -4,7 +4,7 @@
 date : 2022-04-22   
 url : https://www.acmicpc.net/problem/2839   
 difficulty : Bronze 1   
-status : Success
+status : success
 
 문제
 ---
