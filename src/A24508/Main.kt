@@ -1,24 +1,7 @@
 package A24508
 
 fun main() {
-    var (n, k, t) = readLine()!!.split(" ").map { it.toInt() }
-    val v = readLine()!!.split(" ").map { it.toInt() }.sortedDescending().toMutableList()
-    var m = v.size - 1
-    for (i in v.indices) {
-        while (v[i] < k && m > i) {
-            if (v[m] > 0) {
-                if (t > 0) {
-                    v[m] -= 1
-                    v[i] += 1
-                    t -= 1
-                } else {
-                    print("NO")
-                    return
-                }
-            } else {
-                m -= 1
-            }
-        }
-    }
-    print(if (v.any { it != 0 && it != k }) "NO" else "YES")
+    val (_, k, t) = readLine()!!.split(" ").map { it.toInt() }
+    val v = readLine()!!.split(" ").map { it.toInt() }.sortedDescending()
+    print(if (v.sum() % k == 0 && t > 0 && v.slice(0 until v.sum() / k).sumOf { k - it } <= t) "YES" else "NO")
 }
