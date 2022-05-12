@@ -14,8 +14,10 @@ fun main() {
 //    println(test("2 1 2", "0 0 0")) //
 //    println(test("8 6 9", "5 2 2 2 2 2 2 1")) // YES
 //    println(test("8 6 9", "5 2 2 2 2 2 2 1")) // YES
-    println(test("4 5 3", "4 4 4 3")) // YES
-//    println(test("4 5 4", "4 3 2 2")) //
+//    println(test("4 5 3", "4 4 4 3")) // YES
+//    println(test("5 10000 10000000", "9122 1234 1244 4949 3451")) // YES
+//    println(test("10 10000 10000000", "9122 1234 1244 4949 3451 9122 1234 1244 4949 3451")) // YES
+    println(test("10 10000 10000000", "9122 1234 1244 4949 3451 9122 1234 1244 4949 3451")) //
 }
 
 private fun test(s1: String, s2: String): String {
