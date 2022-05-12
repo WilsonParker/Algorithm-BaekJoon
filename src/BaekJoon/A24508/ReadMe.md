@@ -4,7 +4,7 @@
 date : 2022-05-0 9  
 url : https://www.acmicpc.net/problem/24508   
 difficulty : Silver 1    
-status : fail
+status : success
 
 문제
 ---
