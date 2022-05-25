@@ -16,6 +16,11 @@ fun <T> printlnArray(r: Array<Array<T>>) {
     r.forEach { printArray(it) }
 }
 
+fun printlnArray(r: Array<CharArray>) {
+    r.forEach { println("[${it.joinToString(",")}]") }
+    println()
+}
+
 fun <T> printlnArray(r: List<Array<T>>) {
     r.forEach { printArray(it) }
 }
