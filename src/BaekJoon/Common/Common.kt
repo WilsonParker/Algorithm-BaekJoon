@@ -21,6 +21,12 @@ fun printlnArray(r: Array<CharArray>) {
     println()
 }
 
-fun <T> printlnArray(r: List<Array<T>>) {
-    r.forEach { printArray(it) }
+fun <T> printlnArray(r: List<T>) {
+    r.forEach {
+        if (it is Array<*>) {
+            printArray(it)
+        } else {
+            println(it)
+        }
+    }
 }

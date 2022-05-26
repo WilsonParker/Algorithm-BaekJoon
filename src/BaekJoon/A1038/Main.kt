@@ -1,11 +1,7 @@
 package BaekJoon.A1038
 
-import BaekJoon.Common.printlnArray
-
 fun main() {
-    // val n = readLine()!!.toInt()
-    // val n = 1022
-    val n = 1025L
+    val n = readLine()!!.toInt()
     var len = 2
     val l = ArrayList<Long>()
     (0..9L).forEach { l.add(it) }
@@ -26,6 +22,5 @@ fun main() {
                 insert(i, len - 1L, i)
             len++
         }
-    printlnArray(l)
-    print(if (n >= l.size) -1 else l[n.toInt()])
+    print(if (n >= l.size) -1 else l[n])
 }
