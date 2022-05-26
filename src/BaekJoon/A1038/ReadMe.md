@@ -4,7 +4,7 @@
 date : 2022-05-26   
 url : https://www.acmicpc.net/problem/1038   
 difficulty : Gold 5   
-status : ready
+status : success
 
 문제
 ---
@@ -54,6 +54,18 @@ status : ready
 - output
 ```
 -1
+```
+
+### 3)
+
+- input
+```
+1022
+```
+
+- output
+```
+9876543210
 ```
 
 풀이
