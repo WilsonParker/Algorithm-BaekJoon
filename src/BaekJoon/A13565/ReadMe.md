@@ -4,7 +4,7 @@
 date : 2022-05-20   
 url : https://www.acmicpc.net/problem/13565   
 difficulty : Silver 2   
-status : ready
+status : success
 
 문제
 ---
