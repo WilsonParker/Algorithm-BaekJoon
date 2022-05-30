@@ -1,17 +1,25 @@
 package BaekJoon.A25175
 
+import kotlin.math.abs
+
 fun main() {
     // val (n, m, k) = readLine()!!.split(" ").map { it.toInt() }
-    val (n, m, k) = arrayOf(7, 2, 4)
-//    val (n, m, k) = arrayOf(6, 1, -1)
-    val l = Array(n) { it + 1 }
-    fun idx(i: Int) = if (i < 0) m - i *-1 else m - i
-    l[idx(m - 1)] = 3
-    l[idx(m - 2)] -= 1
-    l[m] += 1
-    print(l.find { it == k })
-    // 1 2 3 4 5 6
-    // 2 1 1
-    // 1 0 6
-    // 6 0 1
+    test(arrayOf(7, 2, 4))  // 3
+    test(arrayOf(6, 1, -1)) // 3
+    test(arrayOf(6, 1, 2))  // 6
+    test(arrayOf(7, 2, 2))  // 1
+    test(arrayOf(7, 2, 9))  // 1
+    test(arrayOf(7, 2, 10)) // 2
+    test(arrayOf(7, 2, -3)) // 3
+    test(arrayOf(7, 2, -15))// 5
+    test(arrayOf(7, 2, 15)) // 7
+    test(arrayOf(1, 1, 10)) // 1
+    test(arrayOf(1, 1, -11))// 1
+    test(arrayOf(1, 1, -11))// 1
+}
+
+private fun test(vars: Array<Int>) {
+    val (n, m, k) = vars
+    val r = if (k > 2) (m + k % n - 3) % n else (abs(n - (3 - k % n)) + m) % n
+    println(if (r == 0) n else r)
 }
