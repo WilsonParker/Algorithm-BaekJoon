@@ -14,8 +14,8 @@ fun main() {
     test(arrayOf(7, 2, -15))// 5
     test(arrayOf(7, 2, 15)) // 7
     test(arrayOf(1, 1, 10)) // 1
-    test(arrayOf(1, 1, -11))// 1
-    test(arrayOf(1, 1, -11))// 1
+    test(arrayOf(1, 1, -11))//
+    test(arrayOf(10000, 10000, -100000))  //
 }
 
 private fun test(vars: Array<Int>) {
