@@ -6,5 +6,7 @@ fun main() {
     k -= 3
     m += k
     m %= n
-    print(m)
+    m += n
+    m %= n
+    print(m + 1)
 }
