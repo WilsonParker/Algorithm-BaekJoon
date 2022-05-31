@@ -4,7 +4,7 @@
 date : 2022-05-27   
 url : https://www.acmicpc.net/problem/25175   
 difficulty : Bronze 3   
-status : ready
+status : success
 
 문제
 ---
