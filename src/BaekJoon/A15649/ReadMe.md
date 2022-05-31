@@ -4,7 +4,7 @@ N과 M (1)
 date : 2022-05-31   
 url : https://www.acmicpc.net/problem/15649   
 difficulty : Silver 3    
-status : ready
+status : success
 
 문제
 ---

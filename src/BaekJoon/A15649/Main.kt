@@ -1,11 +1,7 @@
 package BaekJoon.A15649
 
 fun main() {
-    test(3, 1)
-    test(4, 2)
-}
-
-private fun test(n: Int, m: Int) {
+    val (n, m) = readLine()!!.split(" ").map { it.toInt() }
     permutate(m, Array(n) { it + 1 }).forEach { println(it.joinToString(" ")) }
 }
 
