@@ -4,7 +4,7 @@ Q-인덱스
 date : 2022-06-03   
 url : https://www.acmicpc.net/problem/13333   
 difficulty : Bronze 1   
-status : ready
+status : complete
 
 문제
 ---
