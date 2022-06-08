@@ -1,15 +1,31 @@
 package BaekJoon.A10973
 
-fun main() {
-    val n = readLine()!!.toInt()
-    val s = readLine()!!.split(" ").map { it.toInt() }
-    val l = Array(n) { it + 1 }.partition { it != s[0] }
-    val r = p(l.first, l.second)
-    val i = r.indexOf(s.joinToString(" ")) - 1
-    print(if (i > 0) r[i] else -1)
-}
+import java.util.Collections.swap
 
-private fun p(l: List<Int>, s: List<Int>, e: List<Int> = l.toList()): List<String> = when (e.size) {
-    0 -> listOf(s.joinToString(" "))
-    else -> e.flatMap { p(l, s + it, e - it) }
+fun main() {
+    readLine()
+    val a = readLine()!!.split(" ").map { it.toInt() }
+    val s = a.joinToString(" ")
+    fun prev(a: List<Int>): List<Int> {
+        var turnIdx = 0
+        for (i in a.size - 1 downTo 1) {
+            if (a[i] < a[i - 1]) {
+                turnIdx = i - 1
+                break
+            }
+        }
+        val part = a.slice(0..turnIdx + 1)
+        var swapIdx = 0
+        for (j in part.size - 1 downTo 0) {
+            if (part[j] < a[turnIdx]) {
+                swapIdx = j
+                break
+            }
+        }
+        swap(a, turnIdx, swapIdx)
+        return a
+    }
+
+    val r = prev(a).joinToString(" ")
+    print(if (s == r) -1 else r)
 }
