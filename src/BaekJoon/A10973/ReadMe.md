@@ -4,7 +4,7 @@
 date : 2022-06-03   
 url : https://www.acmicpc.net/problem/10973   
 difficulty : Silver 3   
-status : ready
+status : success
 
 문제
 ---
@@ -58,4 +58,4 @@ status : ready
 
 풀이
 ---
-
+https://dundung.tistory.com/58
