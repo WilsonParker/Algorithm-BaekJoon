@@ -4,7 +4,7 @@
 date : 2022-06-13   
 url : https://www.acmicpc.net/problem/18126   
 difficulty : Silver 2    
-status : ready
+status : success
 
 문제
 ---
@@ -64,4 +64,4 @@ status : ready
 
 풀이
 ---
-
+dfs 를 이용

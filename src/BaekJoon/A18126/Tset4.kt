@@ -37,7 +37,7 @@ fun main() {
                 arrayOf(2, 4, 4),
             )
         ),
-        8
+        12
     )
 
     assertEquals(
@@ -52,7 +52,7 @@ fun main() {
                 arrayOf(5, 3, 2),
             )
         ),
-        15
+        18
     )
 
     assertEquals(
@@ -77,6 +77,19 @@ fun main() {
 
     assertEquals(
         test(
+            4,
+            arrayOf(
+                arrayOf(1, 2, 3),
+                arrayOf(1, 3, 3),
+                arrayOf(2, 3, 3),
+                arrayOf(3, 2, 3),
+            )
+        ),
+        6
+    )
+
+    assertEquals(
+        test(
             11,
             arrayOf(
                 arrayOf(1, 2, 1000000000),
@@ -90,27 +103,27 @@ fun main() {
                 arrayOf(9, 10, 1_000_000_000),
             )
         ),
-        15
+        9000000000
     )
 }
 
 private fun test(n: Int, b: Array<Array<Int>>): Long {
-    fun move(i: Int, j: Int, d: Long, v: Array<Int>): Long {
+    val v = Array(n + 1) { 0 }
+    val m = Array(n + 1) { Array(n + 1) { 0 } }
+    val d = Array(n + 1) { 0L }
+    b.forEach {
+        m[it[0]][it[1]] = it[2]
+        m[it[1]][it[0]] = it[2]
+    }
+    fun dfs(i: Int) {
         v[i] = 1
-        var m = d
-        for (k in b.filter { it[0] == j }) {
-            if (v[j] == 0) {
-                val r = move(j, k[1], d + k[2], v.copyOf())
-                if (r > m) m = r
+        for (j in m[i].indices) {
+            if (m[i][j] != 0 && v[j] == 0) {
+                d[j] = m[i][j] + d[i]
+                dfs(j)
             }
         }
-        return m
     }
-
-    var m = 0L
-    for (i in b.filter { it[0] == 1 }) {
-        val r = move(i[0], i[1], i[2].toLong(), Array(n) { 0 })
-        if (r > m) m = r
-    }
-    return m
+    dfs(1)
+    return d.maxOf { it }
 }
