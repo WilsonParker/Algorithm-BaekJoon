@@ -64,35 +64,24 @@ fun main() {
         ),
         3
     )
-
-    assertEquals(
-        test(
-            2,
-            arrayOf(
-                arrayOf(2, 2, 3),
-            )
-        ),
-        0
-    )
 }
 
 private fun test(n: Int, b: Array<Array<Int>>): Int {
-    fun move(i: Int, j: Int, d: Int, v: Array<Int>): Int {
+    val map = Array(n) { Array(n) { 0 } }
+    fun move(i: Int, j: Int, d: Int, v: Array<Int>) {
         v[i] = 1
-        var m = d
-        for (k in b.filter { it[0] == j }) {
-            if (v[j] == 0) {
-                val r = move(j, k[1], d + k[2], v.copyOf())
-                if (r > m) m = r
+        map[i - 1][j - 1] = d
+        for (k in b) {
+            if (k[0] == j && v[j] == 0) {
+                move(k[0], k[1], d + k[2], v.clone())
             }
         }
-        return m
     }
 
-    var m = 0
     for (i in b.filter { it[0] == 1 }) {
-        val r = move(i[0], i[1], i[2], Array(n) { 0 })
-        if (r > m) m = r
+        move(i[0], i[1], i[2], Array(n) { 0 })
+        println(map.contentDeepToString())
     }
-    return m
+
+    return map.maxOf { it.maxOf { i -> i } }
 }
