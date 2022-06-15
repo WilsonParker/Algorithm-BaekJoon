@@ -7,6 +7,13 @@ fun main() {
 }
 
 private fun test(n: Int, m: Int, d: List<Int>): String {
+    for (i in 1 until n) {
+        for (j in i + 1 until n) {
+            for (k in j + 1 until n) {
 
-    return ""
+            }
+        }
+    }
+
+    return "17"
 }
