@@ -18,7 +18,7 @@ fun main() {
         var back = n.slice(IntRange(h + o, l - 1))
         var mid = n.slice(IntRange(h, h + o - 1))
 
-        if (sum(front.reversed()) <= sum(back)) {
+        if (front.reversed().toDouble() <= back.toDouble()) {
             val arr = (front + mid).toCharArray().map { it.digitToInt() }.toMutableList()
             for (i in arr.size - 1 downTo 0) {
                 val temp = arr[i] + 1
@@ -43,5 +43,3 @@ fun main() {
     }
     print(result)
 }
-
-private fun sum(s: String): Int = s.toCharArray().mapIndexed { i, c -> c.digitToInt() * 10.0.pow(i) }.sum().toInt()
