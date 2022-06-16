@@ -17,3 +17,7 @@ private fun test(n: Int, m: Int, d: List<Int>): String {
 
     return "17"
 }
+
+private fun permutation(a: Array<Int>, s: List<Int> = a.asList(), e: Array<Int>) {
+
+}
