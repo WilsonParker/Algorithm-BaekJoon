@@ -8,20 +8,20 @@ fun main() {
 }
 
 private fun test(k: Int, n: Int): Int {
-    val b = (0..k).map {
-        if (it > 0) {
-            Array(n) { b[1] }
-        } else {
-            Array(n) { it }
-        }
+    val b = Array(k + 1) { Array(n) { it + 1 } }
+    b.forEachIndexed { idx, _ ->
+        if (idx > 0)
+            for (i in 1 until n)
+                b[idx][i] = b[idx][i - 1] + b[idx - 1][i]
     }
-    return 0
+    return b[k][n - 1]
 }
 
 /*
-* 4 / 1 6 21
-* 3 / 1 5 15
-* 2 / 1 4 10
-* 1 / 1 3 6
-* 0 / 1 2 3
+* 5 / 1 7 28 84 200
+* 4 / 1 6 21 56 116
+* 3 / 1 5 15 35 60
+* 2 / 1 4 10 20 35
+* 1 / 1 3 6 10 15
+* 0 / 1 2 3 4 5
 * */
