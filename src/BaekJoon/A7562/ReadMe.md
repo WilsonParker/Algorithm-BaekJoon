@@ -4,7 +4,7 @@
 date : 2022-0-0   
 url : https://www.acmicpc.net/problem/7562   
 difficulty : Silver 1   
-status : ready
+status : success
 
 문제
 ---
@@ -65,4 +65,4 @@ status : ready
 
 풀이
 ---
-
+bfs 를 이용하여 해결

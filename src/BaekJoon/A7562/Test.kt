@@ -1,6 +1,5 @@
 package BaekJoon.A7562
 
-import BaekJoon.Common.printlnArray
 import kotlin.test.assertEquals
 
 fun main() {
