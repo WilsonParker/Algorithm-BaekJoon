@@ -9,7 +9,6 @@ fun main() {
         val c = (res % 10).toInt()
         res *= 0.1
         res = if (c > 5) Math.ceil(res) else Math.floor(res)
-        res = res * 10 / r
-        println("$%.${if (res % 1 == 0.0) 1 else 2}f".format(res))
+        println("$%.2f".format(res * 10 / r))
     }
 }

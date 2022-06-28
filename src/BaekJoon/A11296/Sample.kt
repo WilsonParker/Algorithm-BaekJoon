@@ -12,11 +12,15 @@ fun main() {
 private fun test(input: String): String {
     val (prc, d, cp, pay) = input.split(" ")
     val dot = mapOf("R" to 0.55, "G" to 0.7, "B" to 0.8, "Y" to 0.85, "O" to 0.9, "W" to 0.95)
-    val r = if (pay == "C") 100 else 1000
-    var res = (prc.toDouble() * dot[d]!! * if (cp == "C") 0.95 else 1.0) * r
-    val c = (res % 10).toInt()
-    res *= 0.1
-    res = if (c > 5) Math.ceil(res) else Math.floor(res)
-    println("$%.2f".format(res * 10 / r))
-    return "$%.2f".format(res * 10 / r)
+    val v = prc.toDouble() * dot[d]!! * if (cp == "C") .95 else 1.0
+    val result = if (pay == "P") {
+        "$%.2f".format(v)
+    } else {
+        var t = (v * 100).toInt()
+        if (t % 10 < 6)
+            t -= t % 10
+        "$%.1f0".format(t * .01)
+    }
+    println(result)
+    return result
 }
