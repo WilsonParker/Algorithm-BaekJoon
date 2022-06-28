@@ -5,9 +5,9 @@ import java.lang.Math.floor
 import kotlin.test.assertEquals
 
 fun main() {
-//    assertEquals(test("29.99 R X P"), "$16.49")
-//    assertEquals(test("119.95 W C P"), "$108.25")
-//    assertEquals(test("68.50 B X P"), "$54.80")
+    assertEquals(test("29.99 R X P"), "$16.49")
+    assertEquals(test("119.95 W C P"), "$108.25")
+    assertEquals(test("68.50 B X P"), "$54.80")
     assertEquals(test("69.90 Y C C"), "$56.40")
 }
 

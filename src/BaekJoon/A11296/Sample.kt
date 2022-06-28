@@ -7,6 +7,8 @@ fun main() {
     assertEquals(test("119.95 W C P"), "$108.25")
     assertEquals(test("68.50 B X P"), "$54.80")
     assertEquals(test("69.90 Y C C"), "$56.40")
+
+    assertEquals(test("25.96 Y C C"), "$21.00")
 }
 
 private fun test(input: String): String {
