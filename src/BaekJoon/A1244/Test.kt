@@ -1,6 +1,5 @@
 package BaekJoon.A1244
 
-import BaekJoon.Common.printlnArray
 import kotlin.test.assertEquals
 
 fun main() {
@@ -18,10 +17,10 @@ private fun test(n: Int, s: String, c: Int, l: Array<String>): String {
     fun change(idx: Int) {
         brd[idx] = if (brd[idx] == "1") "0" else "1"
     }
-    for (i in 0 until c) {
+    for (i in m.indices) {
         var t = m[i][1]
         if (m[i][0] == 1) {
-            brd.forEachIndexed { idx, b ->
+            brd.forEachIndexed { idx, _ ->
                 if ((idx + 1) % t == 0) {
                     change(idx)
                 }
@@ -33,12 +32,11 @@ private fun test(n: Int, s: String, c: Int, l: Array<String>): String {
                 if (t - j in 0 until n && t + j in 0 until n && brd[t - j] == brd[t + j]) {
                     change(t - j)
                     change(t + j)
-                }
+                } else break
             }
         }
         println(brd)
     }
-    printlnArray(m)
     brd.chunked(20).forEach { println(it.joinToString(" ")) }
     return brd.chunked(20).joinToString("\n") { it.joinToString(" ") }
 }

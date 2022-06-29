@@ -4,7 +4,7 @@
 date : 2022-06-27   
 url : https://www.acmicpc.net/problem/1244   
 difficulty : Silver 3   
-status : fail
+status : success
 
 문제
 ---

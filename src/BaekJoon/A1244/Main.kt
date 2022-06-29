@@ -22,7 +22,7 @@ fun main() {
                 if (t - j in 0 until n && t + j in 0 until n && brd[t - j] == brd[t + j]) {
                     change(t - j)
                     change(t + j)
-                }
+                } else break
             }
         }
     }
