@@ -23,7 +23,9 @@ fun printlnArray(r: Array<CharArray>) {
 
 fun <T> printlnArray(r: List<T>) {
     r.forEach {
-        if (it is Array<*>) {
+        if (it is CharArray) {
+            println(it)
+        } else if (it is Array<*>) {
             printArray(it)
         } else {
             println(it)
