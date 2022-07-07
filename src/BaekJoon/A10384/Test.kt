@@ -12,20 +12,14 @@ fun main() {
 }
 
 private fun test(case: Int, input: String): String {
-    val c = ('a'..'z').map { it to 0 }
-    input.toCharArray().filter { it != ' ' }.groupBy { it }.map { it.value.count() }
-    for (a in 'a'..'z') {
-        println(a)
-    }
-    println(c)
-    return "Case $case: " + if (c[0] != c[c.size - 1])
-        "Not a pangram"
-    else {
-        when (c[0]) {
-            1 -> "Pangram!"
-            2 -> "Double pangram!!"
-            2 -> "Triple pangram!!!"
-            else -> ""
-        }
-    }
+    val l = ('a'..'z').toList()
+    val c = input.toCharArray().map { it.lowercaseChar() }.filter { l.contains(it) }.groupBy { it }.map { it to it.value.count() }.toMap()
+    val r = if (c.keys.count() == 26) c.values.minOf { it } else 0
+    return "Case $case: " +
+            when (r) {
+                3 -> "Triple pangram!!!"
+                2 -> "Double pangram!!"
+                1 -> "Pangram!"
+                else -> "Not a pangram"
+            }
 }

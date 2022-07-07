@@ -4,7 +4,7 @@
 date : 2022-07-04   
 url : https://www.acmicpc.net/problem/10384   
 difficulty : Silver 5   
-status : ready
+status : success
 
 문제
 ---
